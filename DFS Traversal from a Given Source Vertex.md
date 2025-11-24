@@ -28,11 +28,38 @@ To write a Python program to **print DFS traversal** from a given source vertex.
 ## PYTHON PROGRAM
 
 ```
-ENTER YOUR CODE HERE
+Reg.No: 212222060182
+Name: Preethika S
+
+from collections import defaultdict
+class Graph:
+	def __init__(self):
+		self.graph = defaultdict(list)
+	def addEdge(self, u, v):
+		self.graph[u].append(v)
+	def DFSUtil(self, v, visited):
+		visited.add(v)
+		print(v, end=' ')
+		for neighbour in self.graph[v]:
+			if neighbour not in visited:
+				self.DFSUtil(neighbour, visited)
+	def DFS(self, v):
+		visited = set()
+		self.DFSUtil(v, visited)
+n=int(input())
+g = Graph()
+g.addEdge(0, 1)
+g.addEdge(0, 2)
+g.addEdge(1, 2)
+g.addEdge(2, 0)
+g.addEdge(2, 3)
+g.addEdge(3, 3)
+print("Following is DFS from (starting from vertex {})".format(n))
+g.DFS(n)
 ```
 
 ## OUTPUT
-```
-```
+![image](https://github.com/user-attachments/assets/33c75b08-2f2a-4651-99d7-31fac6322d76)
 
 ## RESULT
+Hence, The program is successfully executed and the Depth First Search (DFS) traversal from the given source vertex is verified.
